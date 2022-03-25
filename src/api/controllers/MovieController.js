@@ -78,7 +78,7 @@ const checkUserAccess = async(user) => {
         }     
     })
     .catch(error => {
-        return false; 
+        throw error
      });
 }
 
@@ -100,7 +100,7 @@ const saveToDB = async(movieDetails,userId) => {
         resolve({success:true, data:savedData })
     })
     .catch(error => {
-        return {success:false, message:error };
+        throw error
     });
 }
 
@@ -126,7 +126,7 @@ const getMovieFromOmdb = async(title) => {
             });
     })
     .catch(error => {
-        return error;
+        throw error
      });
   
 }
