@@ -5,7 +5,7 @@ require('dotenv').config()
 const express = require('express')
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
-
+const cors = require('cors')
 
 /*=================================
 * app configuration
@@ -13,7 +13,7 @@ const mongoose = require('mongoose')
 const app = express()
 app.use(bodyParser.urlencoded({ extended: true, limit: '100mb' }))
 app.use(bodyParser.json({ limit: '100mb' }))
-
+app.use(cors());
 
 /*=================================
 * mongodb configuration
