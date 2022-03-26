@@ -1,16 +1,26 @@
 version: "3.2"
 services:
-  mongo:
-    image: mongo:4.4.3
+  # mongo:
+  #   image: mongo:4.4.3
+  #   ports:
+  #   - 27017:27017
+  #   volumes:
+  #   - mongodb:/data/db
+  mongodb:
+    image: mongo:5.0
+    container_name: "mongodb"
     ports:
-    - 27018:27017
-    volumes:
-    - mongodb:/data/db
+      - published: 27017
+        target: 27017
+    expose: 
+      - "27017"
   app:
     command: node app.js
     build:
       context: .
       dockerfile: Dockerfile
+    depends_on: 
+      - mongodb
     ports:
       - published: ${APP_PORT:-8000}
         target: 8000

@@ -4,23 +4,34 @@
 * [Setup](#setup)
 
 ## General info
-This project is a movie service api.
+This project is a movie service api which fetch movie details from `omdbapi` with the given title.
 	
 ## Technologies
 Project is created with:
 * Nodejs: 14.0
 * mongodb: 4.4.3
 
-	
-## Setup
-To run this project, install it locally using npm:
+## Run locally
+
+1. Clone this repository
+2. Create a .env file and copy the .env.example data to .env file 
+3. Run from root dir
 
 ```
+docker-compose up -d
+```
 
-$ npm install
+By default the movie service will start on port `8000` and mongo db will run on 27017.
+if you want you can change the default value by in env var.
 
-#for production
-$ npm start
+`JWT_SECRET` must be matched with auth service
+`OMDBAPIKEY` was taken from https://www.omdbapi.com/apikey.aspx. The given key is a free key
 
-#for development
-$ npm run dev
+
+To stop the movie service run
+
+```
+docker-compose down
+```
+
+A json file of service named `movie-service-api.json` given in `service-doc/`. You can import it in your api testing application

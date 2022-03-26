@@ -18,17 +18,27 @@ app.use(cors());
 /*=================================
 * mongodb configuration
 * ================================*/
-mongooseOptions = {
+const mongooseOptions = {
     useNewUrlParser: true
 }
-mongoose.connect(process.env.DATABASE, mongooseOptions, (error) => {
-    if (error) {
-        console.log('DB connection failed')
-    } else {
-        console.log('DB connected ')
-    }
-})
-
+let tryCount = 0;
+function connectDb() {
+    // due to mongo container starting delay, sometimes mongoose failed to connect. Retry solved the issue.
+    mongoose.connect(process.env.DATABASE, mongooseOptions, (error) => {
+        if (error) {
+            console.log('DB connection failed')
+            tryCount += 1;
+            if (tryCount < 5) {
+                setTimeout(() => {
+                    connectDb();
+                }, 1000);
+            }
+        } else {
+            console.log('DB connected ')
+        }
+    });
+}
+connectDb();
 
 /*=================================
 * routes

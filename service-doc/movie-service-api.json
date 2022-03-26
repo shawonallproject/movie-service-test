@@ -1,0 +1,182 @@
+{
+  "version": 6,
+  "entities": [
+    {
+      "entity": {
+        "type": "Project",
+        "id": "d031f8fc-ca2f-4350-9108-16c7e82bfa3d",
+        "name": "movie-api"
+      },
+      "children": [
+        {
+          "entity": {
+            "type": "Request",
+            "method": {
+              "requestBody": true,
+              "link": "http://tools.ietf.org/html/rfc7231#section-4.3.3",
+              "name": "POST"
+            },
+            "body": {
+              "formBody": {
+                "overrideContentType": true,
+                "encoding": "application/x-www-form-urlencoded",
+                "items": []
+              },
+              "bodyType": "Text",
+              "textBody": "{\n  \"username\": \"basic-thomas\",\n  \"password\": \"sR-_pcoow-27-6PAwCD8\"\n}"
+            },
+            "uri": {
+              "query": {
+                "delimiter": "&",
+                "items": []
+              },
+              "scheme": {
+                "name": "http",
+                "version": "V11"
+              },
+              "host": "localhost:3000",
+              "path": "/auth"
+            },
+            "id": "bc8aedc3-03da-4560-9da8-9cf06b3eaa2a",
+            "name": "Authentication",
+            "headers": [
+              {
+                "enabled": true,
+                "name": "Content-Type",
+                "value": "application/json"
+              }
+            ]
+          }
+        },
+        {
+          "entity": {
+            "type": "Request",
+            "method": {
+              "requestBody": true,
+              "link": "http://tools.ietf.org/html/rfc7231#section-4.3.3",
+              "name": "POST"
+            },
+            "body": {
+              "formBody": {
+                "overrideContentType": true,
+                "encoding": "application/x-www-form-urlencoded",
+                "items": []
+              },
+              "bodyType": "Text",
+              "textBody": "{\n  \"title\":\"galaxy\"\n}"
+            },
+            "uri": {
+              "query": {
+                "delimiter": "&",
+                "items": []
+              },
+              "scheme": {
+                "name": "http",
+                "version": "V11"
+              },
+              "host": "localhost:8000",
+              "path": "/movies"
+            },
+            "id": "499469dc-4eb3-4b4e-ae4a-eb020445db6f",
+            "name": "Create Movie",
+            "headers": [
+              {
+                "enabled": true,
+                "name": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEyMywibmFtZSI6IkJhc2ljIFRob21hcyIsInJvbGUiOiJiYXNpYyIsImlhdCI6MTY0ODMwMzM5NSwiZXhwIjoxNjQ4MzA1MTk1LCJpc3MiOiJodHRwczovL3d3dy5uZXRndXJ1LmNvbS8iLCJzdWIiOiIxMjMifQ.YFK8jd3wlyGPcVltJZ6DhJEu8AW1QMFADLvW4LHOogI"
+              },
+              {
+                "enabled": true,
+                "name": "Content-Type",
+                "value": "application/json"
+              }
+            ]
+          }
+        },
+        {
+          "entity": {
+            "type": "Request",
+            "method": {
+              "link": "http://tools.ietf.org/html/rfc7231#section-4.3.1",
+              "name": "GET"
+            },
+            "body": {
+              "formBody": {
+                "overrideContentType": true,
+                "encoding": "application/x-www-form-urlencoded",
+                "items": []
+              },
+              "bodyType": "Text",
+              "textBody": "{\n  \"title\":\"test\"\n}"
+            },
+            "uri": {
+              "query": {
+                "delimiter": "&",
+                "items": []
+              },
+              "scheme": {
+                "name": "http",
+                "version": "V11"
+              },
+              "host": "localhost:8000",
+              "path": "/movies"
+            },
+            "id": "2309c42e-6c0d-44c1-9cda-504ae7d3e8cf",
+            "name": "Movie List By User",
+            "headers": [
+              {
+                "enabled": true,
+                "name": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQzNCwibmFtZSI6IlByZW1pdW0gSmltIiwicm9sZSI6InByZW1pdW0iLCJpYXQiOjE2NDgzMDI3MjksImV4cCI6MTY0ODMwNDUyOSwiaXNzIjoiaHR0cHM6Ly93d3cubmV0Z3VydS5jb20vIiwic3ViIjoiNDM0In0.1ShvY_YEnIIZCd3WNkkeIbpL0gimVRuyQSsC5bzNR-U"
+              }
+            ]
+          }
+        },
+        {
+          "entity": {
+            "type": "Request",
+            "method": {
+              "link": "http://tools.ietf.org/html/rfc7231#section-4.3.1",
+              "name": "GET"
+            },
+            "body": {
+              "formBody": {
+                "overrideContentType": true,
+                "encoding": "application/x-www-form-urlencoded",
+                "items": []
+              },
+              "bodyType": "Text",
+              "textBody": "{\n  \"title\":\"test\"\n}"
+            },
+            "uri": {
+              "query": {
+                "delimiter": "&",
+                "items": [
+                  {
+                    "enabled": true,
+                    "name": "t",
+                    "value": ""
+                  },
+                  {
+                    "enabled": true,
+                    "name": "apikey",
+                    "value": "33e63d17"
+                  }
+                ]
+              },
+              "scheme": {
+                "name": "http",
+                "version": "V11"
+              },
+              "host": "www.omdbapi.com",
+              "path": "/"
+            },
+            "id": "15bbe171-4597-48f1-9e20-5ad760dcdea8",
+            "name": "Omdb Api",
+            "headers": []
+          }
+        }
+      ]
+    }
+  ]
+}
